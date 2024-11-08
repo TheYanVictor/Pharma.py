@@ -6,8 +6,8 @@ FROM python:3.8
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# Install dependencies
-RUN pip install -r requirements.txt
+# # Install dependencies
+# RUN pip install -r requirements.txt
 
 # Set the working directory to /app
 WORKDIR /app
@@ -24,9 +24,8 @@ ENV MYSQL_PASSWORD=mysql_user_password
 ENV MYSQL_DATABASE=pharmacy
 
 # Run the following commands to create the new user and grant them the necessary permissions
-RUN mysql -u root -p -e "CREATE USER '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD';"
-RUN mysql -u root -p -e "GRANT ALL PRIVILEGES ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'%';"
-RUN mysql -u root -p -e "FLUSH PRIVILEGES;"
+COPY init.sql /docker-entrypoint-initdb.d/
+
 
 # Expose port 3306 to allow connections to the database
 EXPOSE 3306
