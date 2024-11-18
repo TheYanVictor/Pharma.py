@@ -5,7 +5,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./pharma-web:/
+      - ./pharma-web:/app 
     depends_on:
       - db
 

@@ -1,8 +1,15 @@
 # Usar a imagem base do Python
 FROM python:3.10-slim
 
+# Instalar dependências do sistema necessárias
+RUN apt-get update && apt-get install -y \
+    default-libmysqlclient-dev \
+    build-essential \
+    pkg-config \
+    && apt-get clean
+
 # Define o diretório de trabalho no contêiner
-WORKDIR /pharma-web
+WORKDIR /app
 
 # Copia o arquivo de dependências
 COPY requirements.txt .
