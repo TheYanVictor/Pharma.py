@@ -1,4 +1,5 @@
 # Pharma.py
 CRUD de uma farmácia
 
-A senha pra entrar no banco: docker exec -it pharma_project_db mysql -u mysql_user --password=mysql_user_password
+TENTIVA 2 E ULTIMA
+LUCAS DISSE QUE NAO SOMOS BURROS
