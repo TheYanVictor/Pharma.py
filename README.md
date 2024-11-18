@@ -1,5 +1,6 @@
 # Pharma.py
 CRUD de uma farmácia
 
-TENTIVA 2 E ULTIMA
+TENTIVA ? E ULTIMA
 LUCAS DISSE QUE NAO SOMOS BURROS
+-> eu tenho minhas dúvidas
