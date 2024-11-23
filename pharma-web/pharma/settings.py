@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-wkzqtw&5g%in)_t=d%$r#gpl!p4ij*!jk)8&f_mg!m^_h*rxp-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']  # Permite conexões externas (não seguro para produção)
 
 
 # Application definition
@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "pharma",  # Certifique-se de que seu app está listado aqui
 ]
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
