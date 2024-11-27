@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "pharma",  # Certifique-se de que seu app está listado aqui
+    "database"
 ]
 
 
