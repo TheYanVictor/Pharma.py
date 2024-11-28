@@ -1,3 +1,4 @@
+version: "3.8"
 
 services:
   web:
@@ -5,7 +6,8 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./pharma-web:/app 
+      - ./pharma-web:/app  # Mapeia os arquivos locais do projeto
+      - web_dados:/app/data  # Cria um volume persistente para os dados gerados pelo app
     depends_on:
       - db
 
@@ -19,7 +21,8 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - dados_mysql:/var/lib/mysql
+      - db_dados:/var/lib/mysql  # Volume persistente para o banco de dados
 
 volumes:
-  dados_mysql:
+  web_dados:
+  db_dados:
