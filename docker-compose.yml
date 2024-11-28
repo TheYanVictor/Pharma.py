@@ -6,6 +6,7 @@ services:
       - "8000:8000"
     volumes:
       - ./pharma-web:/app 
+      - web_dados:/app/data
     depends_on:
       - db
 
@@ -23,3 +24,4 @@ services:
 
 volumes:
   dados_mysql:
+  web_dados:

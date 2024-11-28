@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Drogaria</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pagina_inicial/pagina_inicial.css' %}">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <p>Bem-vindo! Aproveite nossas ofertas exclusivas.</p>
+        </div>
+        <div class="header-main">
+            <div class="logo">
+                <h1>Drogaria Online</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="O que você está procurando?">
+                <button>Buscar</button>
+            </div>
+            <div class="cart">
+                <a href="#">Meu Carrinho</a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Medicamentos</a></li>
+                <li><a href="#">Saúde</a></li>
+                <li><a href="#">Beleza</a></li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="banner">
+            <img src="{% static 'images/banner.jpg' %}" alt="Banner promocional">
+        </section>
+
+        <section class="categories">
+            <h2>Categorias</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <img src="{% static 'images/medicamentos.jpg' %}" alt="Medicamentos">
+                    <p>Medicamentos</p>
+                </div>
+                <div class="category-card">
+                    <img src="{% static 'images/saude.jpg' %}" alt="Saúde">
+                    <p>Saúde</p>
+                </div>
+                <div class="category-card">
+                    <img src="{% static 'images/beleza.jpg' %}" alt="Beleza">
+                    <p>Beleza</p>
+                </div>
+                <div class="category-card">
+                    <img src="{% static 'images/ofertas.jpg' %}" alt="Ofertas">
+                    <p>Ofertas</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="offers">
+            <h2>Ofertas Exclusivas</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="{% static 'images/product1.jpg' %}" alt="Produto 1">
+                    <h3>Produto 1</h3>
+                    <p>De R$30,00 por <strong>R$25,00</strong></p>
+                    <a href="#" class="buy-button">Comprar</a>
+                </div>
+                <div class="product-card">
+                    <img src="{% static 'images/product2.jpg' %}" alt="Produto 2">
+                    <h3>Produto 2</h3>
+                    <p>De R$50,00 por <strong>R$40,00</strong></p>
+                    <a href="#" class="buy-button">Comprar</a>
+                </div>
+                <div class="product-card">
+                    <img src="{% static 'images/product3.jpg' %}" alt="Produto 3">
+                    <h3>Produto 3</h3>
+                    <p>De R$20,00 por <strong>R$15,00</strong></p>
+                    <a href="#" class="buy-button">Comprar</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Drogaria Online. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
