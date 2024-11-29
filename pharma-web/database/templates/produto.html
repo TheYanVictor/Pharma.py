@@ -11,25 +11,23 @@
     <header class="header">
         <h1 class="logo">Farmácia Online</h1>
         <nav class="nav-bar">
-            <a href="home">Home</a>
-            <a href="produtos.html">Produtos</a>
-            <a href="contato.html">Contato</a>
+            <a href="">Home</a>
+            <a href="produtos">Produtos</a>
+            <a href="sobre">Contato</a>
         </nav>
     </header>
 
     <main class="medicamento-container">
         <!-- Imagem e informações principais -->
+        {% with x=produto %}
         <div class="imagem-e-detalhes">
-            <div class="imagem-remedio">
-                <img src="imagem-do-remedio.jpg" alt="Imagem do Remédio" class="remedio-img">
-            </div>
             <div class="informacoes-remedio">
-                <h2 class="nome-remedio">Nome do Remédio</h2>
-                <p class="laboratorio-remedio"><strong>Laboratório:</strong> Nome do Laboratório</p>
-                <p class="preco-remedio"><strong>Preço:</strong> R$ 39,90</p>
+                <h2 class="nome-remedio">{{x.nome}}</h2>
+                <p class="laboratorio-remedio"><strong>Laboratório:</strong> {{x.fabricante}}</p>
+                <p class="preco-remedio"><strong>Preço:</strong> R$ {{x.preco}}</p>
                 <form class="form-compra">
                     <label for="quantidade" class="label-quantidade">Quantidade:</label>
-                    <input type="number" id="quantidade" name="quantidade" min="1" max="10" value="1" class="input-quantidade">
+                    <input type="number" id="quantidade" name="quantidade" min="1" max="{{x.estoque}}" value="1" class="input-quantidade">
                     <button type="submit" class="botao-comprar">Comprar</button>
                 </form>
             </div>
@@ -39,54 +37,15 @@
         <div class="conteudo-detalhado">
             <section class="descricao">
                 <h3>Descrição</h3>
-                <p>Este medicamento é indicado para tratar sintomas de gripe e resfriado, ajudando no alívio da febre e dores no corpo.</p>
+                <p>{{x.descricao}}</p>
             </section>
-            <section class="composicao">
-                <h3>Composição</h3>
-                <ul>
-                    <li>Paracetamol 500mg</li>
-                    <li>Cloridrato de fenilefrina 10mg</li>
-                    <li>Excipientes q.s.p.</li>
-                </ul>
-            </section>
+           
             <section class="indicacoes">
-                <h3>Indicações</h3>
-                <p>Indicado para febres leves a moderadas, dores de cabeça e congestão nasal.</p>
-            </section>
-            <section class="contraindicacoes">
-                <h3>Contraindicações</h3>
-                <p>Não indicado para pessoas com alergia a paracetamol ou hipertensas.</p>
-            </section>
-            <section class="avaliacoes">
-                <h3>Avaliações dos Usuários</h3>
-                <div class="avaliacao">
-                    <strong>Maria Souza</strong>
-                    <p>Ótimo remédio, sempre me ajuda com resfriados! ⭐⭐⭐⭐⭐</p>
-                </div>
-                <div class="avaliacao">
-                    <strong>João Santos</strong>
-                    <p>Funciona, mas me deixou um pouco sonolento. ⭐⭐⭐⭐</p>
-                </div>
-                <button class="botao-avaliar">Deixar uma Avaliação</button>
+                <h3>Valiadde</h3>
+                <p>{{x.data_validade}}</p>
             </section>
         </div>
-
-        <!-- Barra lateral -->
-        <aside class="barra-lateral">
-            <section class="produtos-relacionados">
-                <h3>Produtos Relacionados</h3>
-                <ul>
-                    <li><a href="#">Vitamina C 1g</a></li>
-                    <li><a href="#">Spray Nasal Descongestionante</a></li>
-                    <li><a href="#">Antigripal Composto</a></li>
-                </ul>
-            </section>
-            <section class="dicas-uso">
-                <h3>Dicas de Uso</h3>
-                <p>Tome o medicamento após as refeições para evitar irritação estomacal.</p>
-                <p>Mantenha-se hidratado enquanto estiver utilizando este medicamento.</p>
-            </section>
-        </aside>
+        {% endwith %}
     </main>
 
     <footer class="footer">

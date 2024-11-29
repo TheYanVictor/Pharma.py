@@ -21,69 +21,43 @@
                 <button>Buscar</button>
             </div>
             <div class="cart">
-                <a href="#">Meu Carrinho</a>
+                <a href="carrinho">Meu Carrinho</a>
             </div>
         </div>
         <nav>
             <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Medicamentos</a></li>
-                <li><a href="#">Saúde</a></li>
-                <li><a href="#">Beleza</a></li>
-                <li><a href="#">Ofertas</a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a href="">Início</a></li>
+                <li><a href="produtos">Medicamentos</a></li>
+                <li><a href="sobre">Sobre</a></li>
+                <li><a href="trabalhe">Trabalhe conosco</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="banner">
-            <img src="{% static 'images/banner.jpg' %}" alt="Banner promocional">
-        </section>
-
         <section class="categories">
             <h2>Categorias</h2>
             <div class="category-grid">
+                {% for x in categorias %}
                 <div class="category-card">
-                    <img src="{% static 'images/medicamentos.jpg' %}" alt="Medicamentos">
-                    <p>Medicamentos</p>
+                    <p>{{x.nome}}</p>
                 </div>
-                <div class="category-card">
-                    <img src="{% static 'images/saude.jpg' %}" alt="Saúde">
-                    <p>Saúde</p>
-                </div>
-                <div class="category-card">
-                    <img src="{% static 'images/beleza.jpg' %}" alt="Beleza">
-                    <p>Beleza</p>
-                </div>
-                <div class="category-card">
-                    <img src="{% static 'images/ofertas.jpg' %}" alt="Ofertas">
-                    <p>Ofertas</p>
-                </div>
+                {% endfor %}
             </div>
         </section>
 
         <section class="offers">
             <h2>Ofertas Exclusivas</h2>
             <div class="product-grid">
+                {% for x in produtos_amostra %}
                 <div class="product-card">
-                    <img src="{% static 'images/product1.jpg' %}" alt="Produto 1">
-                    <h3>Produto 1</h3>
-                    <p>De R$30,00 por <strong>R$25,00</strong></p>
+                    <h3>{{x.nome}}</h3>
+                    <p><strong>R${{x.preco}}</strong></p>
+                    <p>{{x.fabricante}}</p>
+                    <p>{{x.descricao}}</p>
                     <a href="#" class="buy-button">Comprar</a>
                 </div>
-                <div class="product-card">
-                    <img src="{% static 'images/product2.jpg' %}" alt="Produto 2">
-                    <h3>Produto 2</h3>
-                    <p>De R$50,00 por <strong>R$40,00</strong></p>
-                    <a href="#" class="buy-button">Comprar</a>
-                </div>
-                <div class="product-card">
-                    <img src="{% static 'images/product3.jpg' %}" alt="Produto 3">
-                    <h3>Produto 3</h3>
-                    <p>De R$20,00 por <strong>R$15,00</strong></p>
-                    <a href="#" class="buy-button">Comprar</a>
-                </div>
+                {% endfor %}
             </div>
         </section>
     </main>

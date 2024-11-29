@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.template import loader
-from .models import clientes
+from .models import clientes, categoria_remedios, medicamentos
 from django.http import HttpResponse
 
 
@@ -21,13 +21,22 @@ def cadastro(request):
 
 def paginaInicial(request):
     template = loader.get_template('pagina_inicial.html')
-    
-    return HttpResponse(template.render(request=request))
+    categorias_remedios = categoria_remedios.objects.all().values()
+    medicamentos_oferta = medicamentos.objects.all()[:3].values()
+    context = {
+        'categorias': categorias_remedios,
+        'produtos_amostra': medicamentos_oferta
+    }
+    return HttpResponse(template.render(context, request))
 
-def produto(request):
+def produto(request, id):
     template = loader.get_template('produto.html')
+    produto = medicamentos.objects.get(id=id)
+    context = {
+        'produto': produto
+    }
 
-    return HttpResponse(template.render(request=request))
+    return HttpResponse(template.render(context, request))
 
 def carrinho(request):
     template = loader.get_template('carrinho.html')
@@ -38,7 +47,12 @@ def carrinho(request):
 def produtos(request):
     template = loader.get_template('produtos.html')
 
-    return HttpResponse(template.render(request=request))
+    produtos = medicamentos.objects.all().values()
+    context = {
+        'produtos': produtos 
+    }
+
+    return HttpResponse(template.render(context, request))
 
 def sobre(request):
     template = loader.get_template('sobre.html')
