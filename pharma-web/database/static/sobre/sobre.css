@@ -1,0 +1,124 @@
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    padding: 15px 30px;
+    color: #fff;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+.nav-bar a:hover {
+    text-decoration: underline;
+}
+
+/* Container principal */
+.sobre-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* Sobre Nós */
+.sobre-nos {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sobre-nos h2 {
+    font-size: 28px;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.sobre-nos p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Linha do Tempo */
+.linha-do-tempo {
+    text-align: center;
+}
+
+.linha-do-tempo h2 {
+    font-size: 28px;
+    color: #007bff;
+    margin-bottom: 30px;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    margin: 50px auto;
+    width: 80%;
+    height: 4px;
+    background-color: #ccc;
+}
+
+.timeline-ponto {
+    position: absolute;
+    top: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.timeline-ponto:hover {
+    transform: scale(1.2);
+    background-color: #0056b3;
+}
+
+.timeline-ponto:nth-child(1) { left: 0%; }
+.timeline-ponto:nth-child(2) { left: 25%; }
+.timeline-ponto:nth-child(3) { left: 50%; }
+.timeline-ponto:nth-child(4) { left: 75%; }
+.timeline-ponto:nth-child(5) { left: 100%; }
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.timeline-ponto:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}

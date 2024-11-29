@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'edita_perfil/edita_perfil.css' %}">
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo">Farmácia Online</h1>
+        <nav class="nav-bar">
+            <a href="index.html">Home</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="sobre.html">Sobre Nós</a>
+        </nav>
+    </header>
+
+    <main class="editar-container">
+        <section class="formulario-editar">
+            <h2>Editar Perfil</h2>
+            <form action="atualizar-perfil.html" method="post" class="form-editar">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone com DDD" required>
+
+                <label for="endereco">Endereço:</label>
+                <textarea id="endereco" name="endereco" placeholder="Digite seu endereço completo" required></textarea>
+
+                <label for="senha">Nova Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua nova senha">
+
+                <label for="confirmar-senha">Confirmar Nova Senha:</label>
+                <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="Confirme sua nova senha">
+
+                <button type="submit" class="botao-salvar">Salvar Alterações</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Farmácia Online. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'produtos/produtos.css' %}">
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo">Farmácia Online</h1>
+        <nav class="nav-bar">
+            <a href="index.html">Home</a>
+            <a href="carrinho.html">Carrinho</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2 class="titulo">Produtos Disponíveis</h2>
+        <div class="produtos-grid">
+            <!-- Card 1 -->
+            <div class="card">
+                <img src="paracetamol.jpg" alt="Paracetamol" class="imagem-produto">
+                <h3 class="nome-produto">Paracetamol 500mg</h3>
+                <p class="preco-produto">R$ 19,90</p>
+                <div class="acoes">
+                    <button class="botao-comprar">Comprar</button>
+                    <button class="botao-carrinho">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <img src="vitamina-c.jpg" alt="Vitamina C" class="imagem-produto">
+                <h3 class="nome-produto">Vitamina C 1g</h3>
+                <p class="preco-produto">R$ 29,90</p>
+                <div class="acoes">
+                    <button class="botao-comprar">Comprar</button>
+                    <button class="botao-carrinho">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <img src="antigripal.jpg" alt="Antigripal" class="imagem-produto">
+                <h3 class="nome-produto">Antigripal Composto</h3>
+                <p class="preco-produto">R$ 24,90</p>
+                <div class="acoes">
+                    <button class="botao-comprar">Comprar</button>
+                    <button class="botao-carrinho">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Outros cards podem ser adicionados -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Farmácia Online. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

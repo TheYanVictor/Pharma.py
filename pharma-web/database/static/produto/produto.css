@@ -1,0 +1,164 @@
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    padding: 15px 30px;
+    color: #fff;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+.nav-bar a:hover {
+    text-decoration: underline;
+}
+
+/* Container do medicamento */
+.medicamento-container {
+    display: flex;
+    margin: 20px auto;
+    max-width: 1200px;
+    gap: 20px;
+}
+
+/* Imagem e detalhes */
+.imagem-e-detalhes {
+    display: flex;
+    flex: 3;
+    gap: 20px;
+}
+
+.imagem-remedio {
+    flex: 1;
+    text-align: center;
+}
+
+.remedio-img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.informacoes-remedio {
+    flex: 2;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nome-remedio {
+    font-size: 28px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.preco-remedio {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.form-compra {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Conteúdo detalhado */
+.conteudo-detalhado {
+    flex: 4;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.conteudo-detalhado section {
+    margin-bottom: 20px;
+}
+
+.conteudo-detalhado h3 {
+    font-size: 20px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.avaliacao {
+    margin-bottom: 10px;
+}
+
+.botao-avaliar {
+    background-color: #ffc107;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao-avaliar:hover {
+    background-color: #e0a800;
+}
+
+/* Barra lateral */
+.barra-lateral {
+    flex: 2;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.barra-lateral h3 {
+    font-size: 20px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.barra-lateral ul {
+    list-style: none;
+    padding: 0;
+}
+
+.barra-lateral ul li {
+    margin-bottom: 10px;
+}
+
+.barra-lateral ul li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.barra-lateral ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #007bff;
+    color: #fff;
+    margin-top: 20px;
+    font-size: 14px;
+}

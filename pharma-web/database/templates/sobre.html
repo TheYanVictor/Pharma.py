@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'sobre/sobre.css' %}">
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo">Farmácia Online</h1>
+        <nav class="nav-bar">
+            <a href="index.html">Home</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <main class="sobre-container">
+        <section class="sobre-nos">
+            <h2>Sobre Nós</h2>
+            <p>A Farmácia Online é referência no mercado farmacêutico desde sua fundação. Nosso objetivo é oferecer qualidade, segurança e preços justos aos nossos clientes, garantindo um atendimento diferenciado e produtos confiáveis.</p>
+            <p>Com mais de 20 anos de experiência, nos destacamos pela inovação constante e por atender às necessidades de nossos clientes com ética e responsabilidade.</p>
+        </section>
+
+        <section class="linha-do-tempo">
+            <h2>Nossa História</h2>
+            <div class="timeline">
+                <!-- Ponto 1 -->
+                <div class="timeline-ponto" data-text="Fundação em 2000. Início da jornada com uma pequena farmácia de bairro.">
+                    <span class="tooltip">2000: Fundação</span>
+                </div>
+                <!-- Ponto 2 -->
+                <div class="timeline-ponto" data-text="2005: Expansão regional com a abertura de 5 novas unidades.">
+                    <span class="tooltip">2005: Expansão Regional</span>
+                </div>
+                <!-- Ponto 3 -->
+                <div class="timeline-ponto" data-text="2010: Lançamento da loja online, pioneira no mercado farmacêutico digital.">
+                    <span class="tooltip">2010: Loja Online</span>
+                </div>
+                <!-- Ponto 4 -->
+                <div class="timeline-ponto" data-text="2018: Introdução de atendimento por WhatsApp e entrega expressa.">
+                    <span class="tooltip">2018: Atendimento Digital</span>
+                </div>
+                <!-- Ponto 5 -->
+                <div class="timeline-ponto" data-text="2024: Reconhecimento como a farmácia mais confiável do Brasil.">
+                    <span class="tooltip">2024: Reconhecimento Nacional</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Farmácia Online. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

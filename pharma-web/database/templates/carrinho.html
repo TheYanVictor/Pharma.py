@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'carrinho/carrinho.css' %}">
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo">Farmácia Online</h1>
+        <nav class="nav-bar">
+            <a href="index.html">Home</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <main class="carrinho-container">
+        <!-- Lista de produtos no carrinho -->
+        <section class="carrinho-produtos">
+            <h2>Seu Carrinho</h2>
+            <table class="tabela-produtos">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Preço Unitário</th>
+                        <th>Subtotal</th>
+                        <th>Remover</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="produto-info">
+                            <img src="imagem-do-produto.jpg" alt="Nome do Produto" class="produto-img">
+                            <span>Paracetamol 500mg</span>
+                        </td>
+                        <td>
+                            <input type="number" value="1" min="1" class="input-quantidade">
+                        </td>
+                        <td>R$ 19,90</td>
+                        <td>R$ 19,90</td>
+                        <td>
+                            <button class="botao-remover">Remover</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="produto-info">
+                            <img src="imagem-do-produto-2.jpg" alt="Nome do Produto" class="produto-img">
+                            <span>Vitamina C 1g</span>
+                        </td>
+                        <td>
+                            <input type="number" value="2" min="1" class="input-quantidade">
+                        </td>
+                        <td>R$ 29,90</td>
+                        <td>R$ 59,80</td>
+                        <td>
+                            <button class="botao-remover">Remover</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Resumo do pedido -->
+        <aside class="resumo-compra">
+            <h2>Resumo da Compra</h2>
+            <div class="detalhes-resumo">
+                <p>Subtotal: <span class="valor">R$ 79,70</span></p>
+                <p>Frete: <span class="valor">R$ 10,00</span></p>
+                <p>Desconto: <span class="valor">- R$ 5,00</span></p>
+                <hr>
+                <p><strong>Total: <span class="valor-total">R$ 84,70</span></strong></p>
+            </div>
+            <form class="form-cupom">
+                <label for="cupom">Adicionar cupom de desconto:</label>
+                <input type="text" id="cupom" name="cupom" placeholder="Digite o código do cupom">
+                <button type="submit" class="botao-aplicar">Aplicar</button>
+            </form>
+            <button class="botao-finalizar">Finalizar Compra</button>
+        </aside>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Farmácia Online. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
+

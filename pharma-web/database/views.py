@@ -23,3 +23,39 @@ def paginaInicial(request):
     template = loader.get_template('pagina_inicial.html')
     
     return HttpResponse(template.render(request=request))
+
+def produto(request):
+    template = loader.get_template('produto.html')
+
+    return HttpResponse(template.render(request=request))
+
+def carrinho(request):
+    template = loader.get_template('carrinho.html')
+
+    return HttpResponse(template.render(request=request))
+
+
+def produtos(request):
+    template = loader.get_template('produtos.html')
+
+    return HttpResponse(template.render(request=request))
+
+def sobre(request):
+    template = loader.get_template('sobre.html')
+
+    return HttpResponse(template.render(request=request))
+
+def cadastrar(request):
+    template = loader.get_template('cadastrar.html')
+
+    return HttpResponse(template.render(request=request))
+
+def trabalhe(request):
+    template = loader.get_template('trabalhe.html')
+
+    return HttpResponse(template.render(request=request))
+
+def edita_perfil(request):
+    template = loader.get_template('edita_perfil.html')
+
+    return HttpResponse(template.render(request=request))
