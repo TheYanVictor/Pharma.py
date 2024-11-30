@@ -11,9 +11,9 @@
     <header class="header">
         <h1 class="logo">Farmácia Online</h1>
         <nav class="nav-bar">
-            <a href="index.html">Home</a>
-            <a href="produtos.html">Produtos</a>
-            <a href="contato.html">Contato</a>
+            <a href="">Home</a>
+            <a href="produtos">Produtos</a>
+            <a href="sobre">Sobre</a>
         </nav>
     </header>
 
@@ -32,55 +32,36 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for item in little_cart %}
                     <tr>
                         <td class="produto-info">
-                            <img src="imagem-do-produto.jpg" alt="Nome do Produto" class="produto-img">
-                            <span>Paracetamol 500mg</span>
+                            <span>{{item.medicamento.nome}}</span>
                         </td>
                         <td>
-                            <input type="number" value="1" min="1" class="input-quantidade">
+                            <input type="number" value="{{item.quantidade}}" min="1" class="input-quantidade">
                         </td>
-                        <td>R$ 19,90</td>
-                        <td>R$ 19,90</td>
+                        <td>R$ {{item.preco_unitario}}</td>
+                        <td>R$ {{item.total}}</td>
                         <td>
-                            <button class="botao-remover">Remover</button>
+                            <button class="botao-remover" onclick="window.location.href='remover_carrinho/{{item.id}}'">Remover</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="produto-info">
-                            <img src="imagem-do-produto-2.jpg" alt="Nome do Produto" class="produto-img">
-                            <span>Vitamina C 1g</span>
-                        </td>
-                        <td>
-                            <input type="number" value="2" min="1" class="input-quantidade">
-                        </td>
-                        <td>R$ 29,90</td>
-                        <td>R$ 59,80</td>
-                        <td>
-                            <button class="botao-remover">Remover</button>
-                        </td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </section>
 
         <!-- Resumo do pedido -->
+        {% with x=total%}
         <aside class="resumo-compra">
             <h2>Resumo da Compra</h2>
             <div class="detalhes-resumo">
-                <p>Subtotal: <span class="valor">R$ 79,70</span></p>
-                <p>Frete: <span class="valor">R$ 10,00</span></p>
-                <p>Desconto: <span class="valor">- R$ 5,00</span></p>
                 <hr>
-                <p><strong>Total: <span class="valor-total">R$ 84,70</span></strong></p>
+                <p><strong>Total: <span class="valor-total">R$ {{x}}</span></strong></p>
             </div>
-            <form class="form-cupom">
-                <label for="cupom">Adicionar cupom de desconto:</label>
-                <input type="text" id="cupom" name="cupom" placeholder="Digite o código do cupom">
-                <button type="submit" class="botao-aplicar">Aplicar</button>
-            </form>
             <button class="botao-finalizar">Finalizar Compra</button>
         </aside>
+        {% endwith %}
     </main>
 
     <footer class="footer">

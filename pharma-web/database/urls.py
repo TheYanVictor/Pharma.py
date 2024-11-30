@@ -12,4 +12,8 @@ urlpatterns = [
     path('cadastrar', views.cadastrar, name='cadastrar'),
     path('trabalhe', views.trabalhe, name='trabalhe'),
     path('edita_perfil', views.edita_perfil, name='edita_perfil'),
+    path('criar_usuario', views.criar_usuario),
+    path('processar-cadastro', views.cadastrar_produto),
+    path('adicionar_carrinho/<int:id>', views.adicionar_ao_carrinho),
+    path('remover_carrinho/<int:id>', views.remover_carrinho),
 ]

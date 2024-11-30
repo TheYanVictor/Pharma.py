@@ -29,7 +29,7 @@
                 <p class="preco-produto">{{x.categoria}}</p>
                 <div class="acoes">
                     <button class="botao-comprar" onclick="window.location.href='produto/{{x.id}}'">Comprar</button>
-                    <button class="botao-carrinho">Adicionar ao Carrinho</button>
+                    <button class="botao-carrinho" onclick="window.location.href='adicionar_carrinho/{{x.id}}'">Adicionar ao Carrinho</button>
                 </div>
             </div>
             {% endfor %} 

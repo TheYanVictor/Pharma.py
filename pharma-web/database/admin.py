@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import categoria_remedios, clientes, fornecedores, funcionarios, medicamentos, compras, itens_compra, vendas, itens_venda
+from .models import categoria_remedios, clientes, fornecedores, funcionarios, medicamentos, compras, itens_compra, vendas, itens_venda, cart
 
 
 # Register your models here.
@@ -12,3 +12,4 @@ admin.site.register(compras)
 admin.site.register(itens_compra)
 admin.site.register(vendas)
 admin.site.register(itens_venda)
+admin.site.register(cart)

@@ -10,6 +10,7 @@ class clientes(models.Model):
     telefone = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     endereco = models.CharField(max_length=50)
+    senha = models.CharField(max_length=50)
 
 
 class fornecedores(models.Model):
@@ -63,3 +64,9 @@ class itens_venda(models.Model):
     preco_unitario = models.FloatField()
     id_medicamento = models.ForeignKey(medicamentos, on_delete=models.CASCADE)
     id_vendas = models.ForeignKey(vendas, on_delete=models.CASCADE)
+
+class cart(models.Model):
+    medicamento = models.ForeignKey(medicamentos, on_delete=models.CASCADE)
+    quantidade = models.PositiveIntegerField(default=1)
+    preco_unitario = models.DecimalField(max_digits=10, decimal_places=2)
+    total = models.DecimalField(max_digits=10, decimal_places=2, editable=False)

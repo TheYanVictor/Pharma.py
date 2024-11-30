@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import loader
-from .models import clientes, categoria_remedios, medicamentos
+from .models import clientes, categoria_remedios, medicamentos, fornecedores, cart
 from django.http import HttpResponse
 
 
@@ -40,8 +40,19 @@ def produto(request, id):
 
 def carrinho(request):
     template = loader.get_template('carrinho.html')
+    carro_pequeno = cart.objects.all()
 
-    return HttpResponse(template.render(request=request))
+    total = 0
+
+    for x in carro_pequeno:
+        total += x.total
+
+    context = {
+        'little_cart': carro_pequeno,
+        'total': total
+    }
+
+    return HttpResponse(template.render(context, request))
 
 
 def produtos(request):
@@ -61,8 +72,12 @@ def sobre(request):
 
 def cadastrar(request):
     template = loader.get_template('cadastrar.html')
+    categorias = categoria_remedios.objects.all().values()
+    context = {
+        'categorias': categorias,
+    }
 
-    return HttpResponse(template.render(request=request))
+    return HttpResponse(template.render(context, request))
 
 def trabalhe(request):
     template = loader.get_template('trabalhe.html')
@@ -73,3 +88,67 @@ def edita_perfil(request):
     template = loader.get_template('edita_perfil.html')
 
     return HttpResponse(template.render(request=request))
+
+def criar_usuario(request):
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+
+        if nome and email and senha:
+            clientes.objects.create(nome=nome, email=email, senha=senha)
+            return redirect('/')
+        return HttpResponse("Missing something", status=400)
+    return render(request, 'create_post.html')
+
+def cadastrar_produto(request):
+    if request.method == 'POST':
+        nome = request.POST['nome']
+        descricao = request.POST['descricao']
+        fabricante = request.POST['fabricante']
+        preco = float(request.POST['preco'])
+        estoque = int(request.POST['estoque'])
+        data_validade = request.POST['data_validade']
+        categoria_id = int(request.POST['categoria'])
+
+        # Obtém a categoria associada
+        categoria = categoria_remedios.objects.get(id=categoria_id)
+
+        # Cria o novo medicamento
+        novo_medicamento = medicamentos(
+            nome=nome,
+            descricao=descricao,
+            fabricante=fabricante,
+            preco=preco,
+            estoque=estoque,
+            data_validade=data_validade,
+            categoria=categoria
+        )
+        novo_medicamento.save()
+
+    categorias = categoria_remedios.objects.all()  # Lista de categorias para o dropdown
+    return render(request, 'cadastrar.html', {'categorias': categorias})
+    
+def adicionar_ao_carrinho(request, id):
+    medicamento = medicamentos.objects.get(id=id)
+    preco = medicamento.preco
+
+    # objeto = cart.objects.create(medicamento = id, quantidade = 1, preco_unitario = preco, total = preco)
+
+    item, created = cart.objects.get_or_create(
+        medicamento=medicamento,
+        defaults={'quantidade': 1, 'preco_unitario': preco, 'total': preco}
+    )
+    if not created:
+        item.quantidade += 1
+        item.total = preco * item.quantidade
+        item.save()
+    return redirect('/produtos')
+
+def remover_carrinho(request, id):
+    objeto = cart.objects.get(id=id)
+
+    if objeto:
+        objeto.delete()
+    return redirect('/carrinho')
+
